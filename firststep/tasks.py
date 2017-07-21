@@ -1,6 +1,8 @@
-from celery import Celery
+from celery import Celery,platforms
 
 app = Celery('tasks', broker='redis://guest@192.168.51.17:6379/8', backend='redis://guest@192.168.51.17:6379/9')
+
+platforms.C_FORCE_ROOT=True
 
 # app.conf.CELERY_TASK_SERIALIZER = 'json'
 
